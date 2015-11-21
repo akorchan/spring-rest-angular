@@ -1,12 +1,23 @@
-*.class
+#Intellij Idea
+.idea
+/*.iml
+/out
+/.idea_modules
+/.classpath
+/.project
+/RUNNING_PID
+/.settings
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
-*.jar
-*.war
+#Buid files
+public/bower_components
+project/project
+project/target
+target
 *.ear
+tmp
+.history
+dist
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+# Logs
+logs
+*.log
