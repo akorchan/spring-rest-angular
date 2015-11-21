@@ -9,14 +9,12 @@
 /.settings
 
 #Buid files
-public/bower_components
+target
+src/main/webapp/public/bower_components
 project/project
 project/target
-target
-*.ear
 tmp
 .history
-dist
 
 # Logs
 logs
