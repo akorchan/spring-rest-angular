@@ -393,3 +393,8 @@ img::-moz-selection {
 body {
     webkit-tap-highlight-color: #0085a1;
 }
+
+/* customizing theme */
+.navbar-fixed-top .navbar-collapse, .navbar-static-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
+    padding-right: 15px;
+}

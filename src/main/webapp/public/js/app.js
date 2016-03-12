@@ -3,7 +3,10 @@
 angular.module('spring-angular', ['ngRoute', 'spring-angular.controllers', 'spring-angular.services'])
     .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
         $routeProvider
-            .when('/main', {templateUrl: 'public/partials/test.html', controller: 'MainPageController'})
+            .when('/main', {templateUrl: 'public/partials/main.html', controller: 'MainPageController'})
+            .when('/contact', {templateUrl: 'public/partials/contact.html', controller: 'MainPageController'})
+            .when('/about', {templateUrl: 'public/partials/about.html', controller: 'MainPageController'})
+            .when('/post', {templateUrl: 'public/partials/post.html', controller: 'MainPageController'})
             .otherwise({redirectTo: '/main'});
     }]);
 
