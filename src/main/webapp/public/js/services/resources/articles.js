@@ -7,3 +7,5 @@ angular.module('spring-angular.services').factory('Articles', function($resource
         }
     });
 });
+// $resources check here:
+// http://www.sitepoint.com/creating-crud-app-minutes-angulars-resource/

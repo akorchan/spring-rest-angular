@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('spring-angular', ['ngRoute', 'spring-angular.controllers', 'spring-angular.services'])
-    .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+    .config(['$routeProvider', '$locationProvider', '$resourceProvider', function ($routeProvider, $locationProvider, $resourceProvider) {
         $routeProvider
             .when('/main', {templateUrl: 'public/partials/main.html', controller: 'MainPageController'})
             .when('/contact', {templateUrl: 'public/partials/contact.html', controller: 'MainPageController'})
@@ -9,7 +9,11 @@ angular.module('spring-angular', ['ngRoute', 'spring-angular.controllers', 'spri
             .when('/articles', {templateUrl: 'public/partials/articles.html', controller: 'ArticlesPageController'})
             .when('/article', {templateUrl: 'public/partials/article.html', controller: 'MainPageController'})
             .otherwise({redirectTo: '/main'});
+
+        // Don't strip trailing slashes from calculated URLs
+        $resourceProvider.defaults.stripTrailingSlashes = false;
     }]);
+
 
 /** constants */
 angular.module('spring-angular.constants', []);
