@@ -3,14 +3,12 @@
 /** store items service */
 angular.module('spring-angular.services').service('MainPageService', function ($http) {
 
-    var test = function (name, callback) {
-        $http({method: "GET", url: "/greeting?name=" + name}).
+    var test = function (id, callback) {
+        $http({method: "GET", url: "api/articles/" + id}).
             success(function (data) {
-                //isAuthenticated = (data == "login");
                 callback(data);
             }).error(function (data) {
                 console.log(data);
-                //isAuthenticated = false;
             });
     };
 

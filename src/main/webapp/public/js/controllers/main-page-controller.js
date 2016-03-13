@@ -3,8 +3,8 @@
 /** Controllers */
 angular.module('spring-angular.controllers')
     .controller('MainPageController', function ($scope, $http, $timeout, $location, MainPageService) {
-        MainPageService.test('test name', function (data) {
+        MainPageService.test('11', function (data) {
             console.log('Successfull test!');
-            $scope.greeting = data;
+            $scope.article = data;
         });
     });

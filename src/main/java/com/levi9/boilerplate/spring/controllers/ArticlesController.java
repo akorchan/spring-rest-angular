@@ -1,8 +1,8 @@
-package com.levi9.boilerplate.spring.controller;
+package com.levi9.boilerplate.spring.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.levi9.boilerplate.spring.controller.dto.ArticleDto;
+import com.levi9.boilerplate.spring.domain.Article;
+import com.levi9.boilerplate.spring.services.ArticleService;
 
 /**
  * @author Andrey Korchan
@@ -20,7 +21,8 @@ import com.levi9.boilerplate.spring.controller.dto.ArticleDto;
 @RestController
 public class ArticlesController {
 
-    private long articleId;
+    @Autowired
+    ArticleService articleService;
 
     /**
      * Returns all existed articles.
@@ -28,11 +30,8 @@ public class ArticlesController {
      * @return all articles
      */
     @RequestMapping(value = "/api/articles", method = RequestMethod.GET)
-    public List<ArticleDto> getArticles() {
-        ArrayList<ArticleDto> listToReturn = new ArrayList<>();
-        listToReturn.add(new ArticleDto(articleId, "Content of " + 1));
-        listToReturn.add(new ArticleDto(articleId, "Content of " + 2));
-        return listToReturn;
+    public List<Article> getArticles() {
+        return articleService.findAll();
     }
 
     /**
@@ -42,8 +41,8 @@ public class ArticlesController {
      * @return article by id
      */
     @RequestMapping(value = "/api/articles/{id}", method = RequestMethod.GET)
-    public ArticleDto getArticle(@PathVariable("id") final long id) {
-        return new ArticleDto(id, "Content of " + id);
+    public Article getArticle(@PathVariable("id") final long id) {
+        return articleService.findOne(id);
     }
 
     /**
@@ -54,9 +53,9 @@ public class ArticlesController {
      */
     @RequestMapping(value = "/api/articles", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public ArticleDto addArticle(@RequestBody final ArticleDto article) {
-        articleId = article.getId();
-        return new ArticleDto(article.getId(), article.getContent());
+    public Article addArticle(@RequestBody final Article article) {
+        articleService.saveArticle(article);
+        return article;
     }
 
     /**
@@ -66,9 +65,8 @@ public class ArticlesController {
      * @return updated article
      */
     @RequestMapping(value = "/api/articles", method = RequestMethod.PUT)
-    public ArticleDto updateArticle(@RequestBody final ArticleDto article) {
-        articleId = article.getId();
-        return new ArticleDto(articleId, article.getContent());
+    public Article updateArticle(@RequestBody final Article article) {
+        return addArticle(article);
     }
 
     /**
@@ -79,7 +77,7 @@ public class ArticlesController {
      */
     @RequestMapping(value = "/api/articles/{id}", method = RequestMethod.DELETE)
     public long deleteArticle(@PathVariable("id") final long id) {
-        articleId = 0;
+        articleService.delete(id);
         return id;
     }
 }
