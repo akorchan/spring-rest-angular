@@ -65,9 +65,11 @@ public class ArticlesController {
      * @param article article to update
      * @return updated article
      */
-    @RequestMapping(value = "/api/articles", method = RequestMethod.PUT)
-    public Article updateArticle(@RequestBody final Article article) {
-        return addArticle(article);
+    @RequestMapping(value = "/api/articles/{id}", method = RequestMethod.PUT)
+    public Article updateArticle(@PathVariable("id") final long id, @RequestBody final Article article) {
+        article.setId(id);
+        articleService.saveArticle(article);
+        return article;
     }
 
     /**

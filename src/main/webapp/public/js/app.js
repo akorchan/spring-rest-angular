@@ -15,7 +15,7 @@ angular.module('spring-angular', ['ngRoute', 'spring-angular.controllers', 'spri
 angular.module('spring-angular.constants', []);
 
 /** services module initialization, allows adding services to module in multiple files */
-angular.module('spring-angular.services', ['spring-angular.constants']);
+angular.module('spring-angular.services', ['ngResource', 'spring-angular.constants']);
 
 /** controllers module initialization, allows adding controllers to module in multiple files */
 angular.module('spring-angular.controllers', ['spring-angular.services', 'spring-angular.directives']);

@@ -1,6 +1,5 @@
 'use strict';
 
-/** store items service */
 angular.module('spring-angular.services').service('MainPageService', function ($http) {
 
     var test = function (id, callback) {
