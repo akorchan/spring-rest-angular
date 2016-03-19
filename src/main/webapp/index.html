@@ -28,7 +28,7 @@
 <body ng-app="spring-angular">
 
 <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top" ng-controller="NavigationController">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
@@ -51,6 +51,9 @@
                     <a href="#/articles">Articles</a>
                 </li>
                 <li>
+                    <a href="#/admin-articles">Admin-Articles</a>
+                </li>
+                <li>
                     <a href="#/article">Sample Article</a>
                 </li>
                 <li>
@@ -58,6 +61,12 @@
                 </li>
                 <li>
                     <a href="#/contact">Contact</a>
+                </li>
+                <li>
+                    <a href="#/login">login</a>
+                </li>
+                <li ng-show="authenticated">
+                    <a href="" ng-click="logout()">logout</a>
                 </li>
             </ul>
         </div>
@@ -121,9 +130,12 @@
 
 <script type="text/javascript" src="/public/js/services/main-page-service.js"></script>
 <script type="text/javascript" src="/public/js/services/resources/articles.js"></script>
+<script type="text/javascript" src="/public/js/services/resources/admin-articles.js"></script>
 
 <script type="text/javascript" src="/public/js/controllers/main-page-controller.js"></script>
+<script type="text/javascript" src="/public/js/controllers/navigation-controller.js"></script>
 <script type="text/javascript" src="/public/js/controllers/articles-page-controller.js"></script>
+<script type="text/javascript" src="/public/js/controllers/admin-articles-page-controller.js"></script>
 
 </body>
 

@@ -3,7 +3,6 @@ package com.levi9.boilerplate.spring.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,8 +19,8 @@ import com.levi9.boilerplate.spring.services.ArticleService;
  * @since 21-Nov-15 16:30
  */
 @RestController
-@RequestMapping("/api")
-public class ArticlesController {
+@RequestMapping("/admin/api")
+public class AdminController {
 
     @Autowired
     ArticleService articleService;
