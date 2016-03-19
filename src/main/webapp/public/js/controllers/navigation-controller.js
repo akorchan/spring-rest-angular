@@ -2,7 +2,7 @@
 
 angular.module('spring-angular.controllers')
     .controller('NavigationController', function ($scope, $rootScope, $http, $timeout, $location) {
-        var self = this
+        var scope = $scope;
         var authenticate = function(credentials, callback) {
             var headers = credentials ? {authorization : "Basic "
             + btoa(credentials.username + ":" + credentials.password)
@@ -22,27 +22,34 @@ angular.module('spring-angular.controllers')
 
         }
         authenticate();
-        self.credentials = {};
-        $scope.login = function() {
-            $http.post('login', $.param($scope.credentials), {
+        scope.credentials = {};
+        scope.login = function() {
+            $http.post('login', $.param(scope.credentials), {
                 headers : {
                     "content-type" : "application/x-www-form-urlencoded"
                 }
             }).success(function(data) {
-                authenticate(function() {
+                authenticate(scope.credentials, function() {
                     if ($rootScope.authenticated) {
-                        $location.path("/");
-                        $scope.error = false;
+                        $location.path("/main");
+                        scope.error = false;
                     } else {
-                        $location.path("/#/login");
-                        $scope.error = true;
+                        $location.path("/login");
+                        scope.error = true;
                     }
                 });
             }).error(function(data) {
-                $location.path("/#/login");
-                $scope.error = true;
+                $location.path("/login");
+                scope.error = true;
                 $rootScope.authenticated = false;
             })
+        };
+
+        scope.logout = function() {
+            $http.post('logout', {}).finally(function () {
+                $rootScope.authenticated = false;
+                $location.path("/login");
+            });
         };
 
     });

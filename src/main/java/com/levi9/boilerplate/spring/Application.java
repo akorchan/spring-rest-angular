@@ -65,13 +65,16 @@ public class Application extends SpringBootServletInitializer {
         @Override
         protected void configure(HttpSecurity http) throws Exception {
             http.authorizeRequests()
+
+                    //front-end
+                    .antMatchers("/public/partials/admin/**").access("hasRole('ADMIN')")
+
                     //back-end
                     .antMatchers("/api/**").permitAll()
                     .antMatchers("/admin/api/**").access("hasRole('ADMIN')")
 //                    .antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')")
 
-                    //front-end
-                    .antMatchers("/public/partials/admin/**").access("hasRole('ADMIN')")
+
 
                     .and().formLogin().loginPage("/login").successHandler(new SimpleUrlAuthenticationSuccessHandler())
 
