@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('spring-angular', ['ngRoute', 'spring-angular.controllers', 'spring-angular.services'])
+angular.module('spring-angular', ['ngRoute', 'ngMap', 'spring-angular.controllers', 'spring-angular.services'])
     .config(['$routeProvider', '$httpProvider', '$resourceProvider', function ($routeProvider, $httpProvider, $resourceProvider) {
         $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
         // Don't strip trailing slashes from calculated URLs
