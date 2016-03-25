@@ -65,24 +65,27 @@ hr.small {
 }
 @media only screen and (min-width: 768px) {
     .navbar-custom {
-        background: transparent;
+        background-color: rgba(255, 255, 255, 0.8);
         border-bottom: 1px solid transparent;
     }
     .navbar-custom .navbar-brand {
-        color: white;
+        color: #404040;
         padding: 20px;
     }
     .navbar-custom .navbar-brand:hover,
     .navbar-custom .navbar-brand:focus {
-        color: rgba(255, 255, 255, 0.8);
+        color: rgba(0, 0, 0, 0.8);
     }
     .navbar-custom .nav li a {
-        color: white;
+        color: #404040;
         padding: 20px;
     }
-    .navbar-custom .nav li a:hover,
+    .navbar-custom .nav li a:hover {
+        background-color: rgba(40, 40, 40, 0.5);
+        color: white;
+    }
     .navbar-custom .nav li a:focus {
-        color: rgba(255, 255, 255, 0.8);
+        color: rgba(40, 40, 40, 0.8);
     }
 }
 @media only screen and (min-width: 1170px) {
@@ -114,14 +117,14 @@ hr.small {
     }
     .navbar-custom.is-fixed .navbar-brand:hover,
     .navbar-custom.is-fixed .navbar-brand:focus {
-        color: #0085a1;
+        color: #000000;
     }
-    .navbar-custom.is-fixed .nav li a {
-        color: #404040;
+    .navbar-custom.is-fixed .nav li a:hover {
+        background-color: rgba(40, 40, 40, 0.5);
+        color: white;
     }
-    .navbar-custom.is-fixed .nav li a:hover,
     .navbar-custom.is-fixed .nav li a:focus {
-        color: #0085a1;
+        color: rgba(40, 40, 40, 0.8);
     }
     .navbar-custom.is-visible {
         /* if the user changes the scrolling direction, we show the header */
@@ -396,5 +399,10 @@ body {
 
 /* customizing theme */
 .navbar-fixed-top .navbar-collapse, .navbar-static-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
-    padding-right: 15px;
+    padding-right: 25px;
+}
+
+ng-map {
+    height: 500px;
+    -webkit-filter: grayscale(60%);
 }
