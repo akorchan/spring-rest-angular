@@ -18,7 +18,7 @@ angular.module('spring-angular.controllers')
                         null, /* size is determined at runtime */
                         null, /* origin is 0,0 */
                         null, /* anchor is bottom center of the scaled image */
-                        new google.maps.Size(45, 45)
+                        new google.maps.Size(30, 60)
                     );
                     var shape = {
                         coords: [1, 1, 1, 20, 18, 20, 18, 1],
