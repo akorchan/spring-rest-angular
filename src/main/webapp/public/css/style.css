@@ -404,5 +404,5 @@ body {
 
 ng-map {
     height: 500px;
-    -webkit-filter: grayscale(60%);
+    -webkit-filter: grayscale(50%);
 }
