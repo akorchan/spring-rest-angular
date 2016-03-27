@@ -403,6 +403,10 @@ body {
 }
 
 ng-map {
-    height: 500px;
+    height: 400px;
     -webkit-filter: grayscale(50%);
+}
+
+.main-content-area {
+    margin-top: 60px;
 }
